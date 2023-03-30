@@ -1,5 +1,6 @@
 package ohm.softa.a03;
 
+import ohm.softa.a03.states.SleepingState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,10 +10,10 @@ public class Cat {
 	private static final Logger logger = LogManager.getLogger();
 
 	// valid states
-	public enum State {SLEEPING, HUNGRY, DIGESTING, PLAYFUL, DEAD}
+	// public enum State {SLEEPING, HUNGRY, DIGESTING, PLAYFUL, DEAD}
 
 	// initially, animals are sleeping
-	private State state = State.SLEEPING;
+	private State state = new SleepingState();
 
 	// state durations (set via constructor), ie. the number of ticks in each state
 	private final int sleep;
@@ -35,7 +36,9 @@ public class Cat {
 		logger.info("tick()");
 		time = time + 1;
 
-		switch (state) {
+		state = state.tick(this);
+
+		/*switch (state) {
 			case SLEEPING:
 				if (time == sleep) {
 					logger.info("Yoan... getting hungry!");
@@ -72,7 +75,7 @@ public class Cat {
 
 		logger.info(state.name());
 
-	}
+	}*/
 
 	/**
 	 * This would be a user interaction: feed the cat to change its state!
@@ -85,6 +88,7 @@ public class Cat {
 
 		// change state and reset the timer
 		state = State.DIGESTING;
+
 		timeDigesting = 0;
 	}
 
@@ -106,6 +110,9 @@ public class Cat {
 
 	public boolean isDead() {
 		return state == State.DEAD;
+	}
+	public int getAwake(){
+
 	}
 
 	@Override
