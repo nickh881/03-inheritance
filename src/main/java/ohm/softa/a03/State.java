@@ -1,7 +1,9 @@
 package ohm.softa.a03;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class State {
-    protected static Logger logger = LogMa.getLogger();
+    protected static Logger logger = LogManager.getLogger();
     int time = 0;
     final int duration;
 

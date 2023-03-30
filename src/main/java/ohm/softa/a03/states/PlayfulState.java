@@ -10,6 +10,7 @@ public class PlayfulState extends State {
 
     @Override
     protected State successor(Cat cat) {
-        return new SleepingState(cat.getDuration);
+        logger.info("Getting tired!");
+        return new SleepingState(cat.getSleeping());
     }
 }
