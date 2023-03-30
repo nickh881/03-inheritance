@@ -4,7 +4,6 @@ import ohm.softa.a03.states.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static ohm.softa.a03.Cat.State.*;
 
 public class Cat {
 	private static final Logger logger = LogManager.getLogger();
