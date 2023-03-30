@@ -12,7 +12,7 @@ public abstract class State {
     final State tick(Cat cat){
         this.time++;
         if(this.time < this.duration){
-            logger.info("Still in");
+            logger.info("Still in {}", getClass().getSimpleName());
             return this;
         }
         else{

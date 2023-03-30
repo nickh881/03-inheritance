@@ -15,7 +15,7 @@ public class Cat {
 	// initially, animals are sleeping
 	private State state;
 
-	// state durations (set via constructor), ie. the number of ticks in each state
+	// state durations (set via constructor), i.e. the number of ticks in each state
 	private final int sleep;
 	private final int awake;
 	private final int digest;
