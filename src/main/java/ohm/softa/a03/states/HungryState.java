@@ -13,7 +13,7 @@ public class HungryState extends State {
         return;
     }
 
-    public State feed(cat Cat){
+    public State feed(Cat cat){
         return new DigestingState(cat.getDuration() - getTime());
     }
 }

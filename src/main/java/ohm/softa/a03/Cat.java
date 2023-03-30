@@ -1,9 +1,6 @@
 package ohm.softa.a03;
 
-import ohm.softa.a03.states.DigestingState;
-import ohm.softa.a03.states.HungryState;
-import ohm.softa.a03.states.PlayfulState;
-import ohm.softa.a03.states.SleepingState;
+import ohm.softa.a03.states.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -54,7 +51,7 @@ public class Cat {
 		logger.info("You feed the cat...");
 
 		// change state and reset the timer
-		state = ((HungryState)state).feed(this);
+		state = ((HungryState) state).feed(this);
 	}
 
 	public boolean isAsleep() {
@@ -74,7 +71,7 @@ public class Cat {
 	}
 
 	public boolean isDead() {
-		return state == State.DEAD;
+		return state instanceof DeadState;
 	}
 	public int getAwake(){
 		return awake;
